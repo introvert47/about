@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
+  /* Catppuccin Mocha tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-lavender: var(--lavender);
+  --color-sapphire: var(--sapphire);
+  --color-mauve: var(--mauve);
+  --color-surface0: var(--surface0);
+  --color-surface1: var(--surface1);
+  --color-overlay: var(--overlay);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: dark;
+  /* Catppuccin Mocha */
+  --background: #1e1e2e;
+  --foreground: #cdd6f4;
+  --card: #181825;
+  --card-foreground: #cdd6f4;
+  --border: rgba(205, 214, 244, 0.1);
+  --input: rgba(205, 214, 244, 0.08);
+  --ring: #b4befe;
+  --muted: #313244;
+  --muted-foreground: #a6adc8;
+  --primary: #b4befe;
+  --primary-foreground: #1e1e2e;
+  --accent: #cba6f7;
+  --accent-foreground: #1e1e2e;
+  --destructive: #f38ba8;
+  --lavender: #b4befe;
+  --sapphire: #74c7ec;
+  --mauve: #cba6f7;
+  --surface0: #313244;
+  --surface1: #45475a;
+  --overlay: rgba(30, 30, 46, 0.85);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1e2e;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #45475a;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b4befe;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(24, 24, 37, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(180, 190, 254, 0.12);
+}
+
+/* Glow effects */
+.glow-lavender {
+  box-shadow: 0 0 20px rgba(180, 190, 254, 0.3);
+}
+.glow-mauve {
+  box-shadow: 0 0 20px rgba(203, 166, 247, 0.3);
+}
+.glow-sapphire {
+  box-shadow: 0 0 20px rgba(116, 199, 236, 0.3);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #b4befe 0%, #cba6f7 50%, #74c7ec 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Input glow on focus */
+.input-glow:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(180, 190, 254, 0.5), 0 0 16px rgba(180, 190, 254, 0.2);
+}
